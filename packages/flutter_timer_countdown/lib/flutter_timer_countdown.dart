@@ -242,24 +242,41 @@ class _TimerCountdownState extends State<TimerCountdown> {
 
   /// Builds the timer seconds with its description.
   Widget _seconds(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          countdownSeconds,
-          style: widget.timeTextStyle,
-        ),
-        if (widget.enableDescriptions)
-          SizedBox(
-            height: 5,
-          ),
-        if (widget.enableDescriptions)
+    return Container(
+      height: 60,
+      width: 60,
+      decoration:   BoxDecoration(
+        color:Colors.white,
+        boxShadow:[
+          BoxShadow(
+              color: const Color(0xFF000000).withOpacity(.08),
+              offset: const Offset(0, 8.0),
+              blurRadius: 16.0),
+          BoxShadow(
+              color: const Color(0xFF000000).withOpacity(.04),
+              offset: const Offset(0, 0),
+              blurRadius: 4.0),
+        ],
+      ),
+      child:Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
           Text(
-            widget.secondsDescription,
-            style: widget.descriptionTextStyle,
+            countdownSeconds,
+            style: widget.timeTextStyle,
           ),
-      ],
+          if (widget.enableDescriptions)
+            SizedBox(
+              height: 5,
+            ),
+          if (widget.enableDescriptions)
+            Text(
+              widget.secondsDescription,
+              style: widget.descriptionTextStyle,
+            ),
+        ],
+      )
     );
   }
 
@@ -341,11 +358,11 @@ class _TimerCountdownState extends State<TimerCountdown> {
           mainAxisSize: MainAxisSize.min,
           children: [
             _days(context),
-            _colon(),
+           SizedBox(width:4),
             _hours(context),
-            _colon(),
+            SizedBox(width:4),
             _minutes(context),
-            _colon(),
+            SizedBox(width:4),
             _seconds(context),
           ],
         );
@@ -354,9 +371,9 @@ class _TimerCountdownState extends State<TimerCountdown> {
           mainAxisSize: MainAxisSize.min,
           children: [
             _days(context),
-            _colon(),
+            SizedBox(width:4),
             _hours(context),
-            _colon(),
+            SizedBox(width:4),
             _minutes(context),
           ],
         );
@@ -365,7 +382,7 @@ class _TimerCountdownState extends State<TimerCountdown> {
           mainAxisSize: MainAxisSize.min,
           children: [
             _days(context),
-            _colon(),
+            SizedBox(width:4),
             _hours(context),
           ],
         );
@@ -381,9 +398,9 @@ class _TimerCountdownState extends State<TimerCountdown> {
           mainAxisSize: MainAxisSize.min,
           children: [
             _hours(context),
-            _colon(),
+            SizedBox(width:4),
             _minutes(context),
-            _colon(),
+            SizedBox(width:4),
             _seconds(context),
           ],
         );
@@ -392,7 +409,7 @@ class _TimerCountdownState extends State<TimerCountdown> {
           mainAxisSize: MainAxisSize.min,
           children: [
             _hours(context),
-            _colon(),
+            SizedBox(width:4),
             _minutes(context),
           ],
         );
@@ -408,7 +425,7 @@ class _TimerCountdownState extends State<TimerCountdown> {
           mainAxisSize: MainAxisSize.min,
           children: [
             _minutes(context),
-            _colon(),
+            SizedBox(width:4),
             _seconds(context),
           ],
         );
@@ -432,11 +449,11 @@ class _TimerCountdownState extends State<TimerCountdown> {
           mainAxisSize: MainAxisSize.min,
           children: [
             _days(context),
-            _colon(),
+            SizedBox(width:4),
             _hours(context),
-            _colon(),
+            SizedBox(width:4),
             _minutes(context),
-            _colon(),
+            SizedBox(width:4),
             _seconds(context),
           ],
         );
